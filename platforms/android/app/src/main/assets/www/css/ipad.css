@@ -1,0 +1,15 @@
+.content p.res { padding: 0!important;}
+.content p.res img { width: 50% !important; float: left; margin: 0 20px 20px 0;}
+.thumb {width: 12.5%!important;}
+.delimiter {clear: both;}
+.content ul.res li {margin-left: 55%;}
+.w50 {float: left; width: 48%; margin-right: 2%;}
+.w50.last {margin-right: 0!important;}
+p.title {font-size: 22px;}
+a.medicamento, a.coito, a.periodo, a#fb, a#tw, a#go {float: left; width: 32%;}
+a.medicamento, a.periodo, a#fb, a#tw {margin-right: 2%;}
+a.btn.mexico_norte , a.btn.mexico_sur, a.btn.cuernavaca, a.btn.redes, a#camera, a#libreria, a.yes, a.no {width: 47.5%; float: left;}
+a.btn.mexico_norte , a.btn.cuernavaca, a#camera, a.yes {margin-right: 5%;}
+button#guardar_mis_datos {float: left;}
+a#eliminar_perfil {float: right;}
+.eventsCalendar-daysList li.m a {text-indent: initial !important; background-position: 90% center !important;}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Acumulación</title>   
+    <meta name="format-detection" content="telephone=no">        
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <!--script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/commons.js"></script-->
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/acumulacion.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("backbutton",backButton);
+        function backButton(){      
+            window.location = "home.html";
+        }
+    </script>
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+
+    <style type="text/css">
+        #btnLogin{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: 280px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 14px;
+            border-color: rgb(255, 102, 0);
+        }
+
+        #btnLogin:hover{
+            
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+
+        label{
+            color:maroon;
+            font-weight: bold;
+            font-size: 1.15em
+        }
+
+        p{
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+       
+    </style>
+        
+</head>    
+<body>
+    <div class="alert">        
+        <div class="top"></div> 
+        <div class="main"></div> 
+        <div class="container">
+            ¿Desea cerrar la aplicación?
+            <div class="action">
+                <a id="close_app" href="javascript:;" class="ok" data-action="1">Salir</a>&nbsp;
+                <a id="close_alert" href="javascript:;" class="ok" data-action="0">Cancelar</a>
+            </div>
+        </div>
+    </div>
+    <div id="header"> 
+        <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
+        <p class="title">Acumulación</p>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="content">
+                <div style="padding:0 10px; margin-top:1em">
+                    <center>
+                    <img style="width: 100%;" src="img/nutrileche.png">
+                    </center>
+                </div>
+                <form id="formAcumulacion"> 
+                    <div class="ui-element">
+                        <label for="codigo" style="font-weight:bold">Ingrese su código: *</label>
+                        <input id="codigo" type="text" name="codigo" placeholder="Ingresa tu código de acumulación"/>
+                    </div>
+                    <div class="ui-element">
+                        <label for="password" style="font-weight:bold">Ingresa tu contraseña: *</label>
+                        <input id="password" type="password" name="password" placeholder="Ingresa tu contraseña para confirmar"/>
+                    </div>
+                    <div class="ui-element">
+                        <input id="id_usuario" type="hidden" name="id_usuario"/>
+                        <center><button id="btnAcumular" type="submit" class="btn">Acumular</button></center>                    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="menu"></div>
+</body>
+</html>

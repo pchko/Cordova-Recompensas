@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Acumulación</title>   
+    <meta name="format-detection" content="telephone=no">        
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <script type="text/javascript">
+        document.addEventListener("backbutton",backButton);
+        function backButton(){      
+            window.location = "home.html";
+        }
+    </script>
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+
+    <style type="text/css">
+        #btnLogin{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: 280px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 14px;
+            border-color: rgb(255, 102, 0);
+        }
+
+        #btnLogin:hover{
+            
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+
+        label{
+            color:maroon;
+            font-weight: bold;
+            font-size: 1.15em
+        }
+
+        p{
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+       
+    </style>
+        
+</head>    
+<body>
+    <div class="alert">        
+        <div class="top"></div> 
+        <div class="main"></div> 
+        <div class="container">
+            ¿Desea cerrar la aplicación?
+            <div class="action">
+                <a id="close_app" href="javascript:;" class="ok" data-action="1">Salir</a>&nbsp;
+                <a id="close_alert" href="javascript:;" class="ok" data-action="0">Cancelar</a>
+            </div>
+        </div>
+    </div>
+    <div id="header"> 
+        <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
+        <p class="title">Comentarios</p>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="content">
+                <div style="padding:0 10px; margin-top:1em">
+                    <center>
+                    <img style="height: 150px; width: auto" src="img/nutrileche.png">
+                    </center>
+                </div>
+                <div class="ui-element">
+                    <h2>Hola <span id="spanName"></span>, aquí puedes subir tus dudas y/o sugerencias que tengas.</h2>
+                </div>
+                <form id="formComentario"> 
+                    <div class="ui-element">
+                        <label for="comentario" style="font-weight:bold">Ingresa tu comentario: *</label>
+                        <textarea id="comentario" type="text" name="comentario" placeholder="Máximo 128 caracteres"/></textarea>
+                    </div>
+                    <!--div class="ui-element">
+                        <label for="password" style="font-weight:bold">Ingresa tu contraseña para confirmar: *</label>
+                        <input id="password" type="password" name="password" placeholder="Ingresa tu contraseña para confirmar"/>
+                    </div-->
+                    <div class="ui-element">
+                        <input id="id_usuario" type="hidden" name="id_usuario"/>
+                        <center><button id="btnAcumular" type="submit" class="btn">Enviar comentario</button></center>                    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="menu"></div>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/comentarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Recompensas",
+  "short_name": "Recompensas",
+  "version": "com.pixanit.rewards",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "author": "Created by PixanIT",
+  "icons": [],
+  "start_url": "index.html"
+}

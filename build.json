@@ -1,0 +1,18 @@
+{
+     "android": {
+         "debug": {
+             "keystore": "pixanit.keystore",
+             "storePassword": "hyaqgte3nh",
+             "alias": "pixanit",
+             "password" : "hyaqgte3nh",
+             "keystoreType": ""
+         },
+         "release": {
+            "keystore": "pixanit.keystore",
+             "storePassword": "hyaqgte3nh",
+             "alias": "pixanit",
+             "password" : "hyaqgte3nh",
+             "keystoreType": ""
+         }
+     }
+ }

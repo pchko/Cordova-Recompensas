@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Recuperar contraseña</title>   
+    <meta name="format-detection" content="telephone=no">        
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+    <style type="text/css">
+        #btnRecover{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: 280px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 10px;
+            border-color: rgb(255, 102, 0);
+        }
+
+        #btnRecover:hover{
+            
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+        .content{
+            min-height: inherit;
+        }
+
+         label{
+            color:maroon;
+            font-weight: bold;
+            font-size: 1.15em
+        }
+
+    </style>
+        
+</head>    
+<body>
+    <div id="header">
+        <div id="menu_action"><a href="index.html"><img src="img/arrow-left.png" /></a></div>
+        <p class="title">Recuperar cuenta</p>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="content">
+                <div style="padding:0 10px; margin-top:1em">
+                    <center>
+                    <img style="width: 100%;" src="img/nutrileche.png">
+                    </center>
+                </div>
+                <form id="formRecover">
+                    <div class="ui-element">
+                        <label for="usuario" style="font-weight:bold">Por favor ingrese su usuario: *</label>
+                        <input required="required" id="usuario" type="text" name="usuario" placeholder="Username"/>
+                    </div>
+                    <div class="ui-element">
+                        <label for="mail" style="font-weight:bold">Por favor ingrese su correo electrónico: *</label>
+                        <input required="required" id="mail" type="email" name="mail" placeholder="Ingrese su email"/>
+                    </div>
+                    <div class="ui-element">
+                        <label for="nuevo_password" style="font-weight:bold">Por favor ingrese su nueva contraseña: *</label>
+                        <input required="required" id="nuevo_password" type="password" name="nuevo_password" placeholder="Nueva contraseña"/>
+                    </div>
+                    <div class="ui-element">
+                        <label for="new_repassword" style="font-weight:bold">Por favor confirme su nueva contraseña: *</label>
+                        <input required="required" id="nuevo_repassword" type="password" name="nuevo_repassword" placeholder="Confirme la contraseña"/>
+                    </div>
+                    <div class="ui-element" id="divBtn">
+                        <br>
+                        <center><button id="btnRecover" type="submit" class="btn">Recuperar contraseña</button></center>
+                    </div>
+                </form>                
+                                
+            </div>
+        </div>
+    </div>    
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>    
+    <script type="text/javascript" src="js/commons.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/recover.js"></script>
+</body>
+</html>

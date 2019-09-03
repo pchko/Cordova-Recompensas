@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-pdialog",
+  "_id": "cordova-plugin-pdialog@2.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-gc6kSrz7GU9p3hh6hrbhI9rx4jA=",
+  "_location": "/cordova-plugin-pdialog",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-pdialog",
+    "name": "cordova-plugin-pdialog",
+    "escapedName": "cordova-plugin-pdialog",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-pdialog/-/cordova-plugin-pdialog-2.0.1.tgz",
+  "_shasum": "81cea44abcfb194f69de187a86b6e123daf1e230",
+  "_spec": "cordova-plugin-pdialog",
+  "_where": "C:\\Users\\Pacheko\\Documents\\Cordova\\Recompensas",
+  "author": {
+    "name": "pwlin05@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pwlin/cordova-plugin-pdialog/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-pdialog",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "An Android Progress Dialog Plugin for Cordova",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/pwlin/cordova-plugin-pdialog#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-pdialog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwlin/cordova-plugin-pdialog.git"
+  },
+  "version": "2.0.1"
+}

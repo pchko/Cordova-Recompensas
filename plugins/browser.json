@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-pdialog": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-spinner": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-spinnerdialog": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-file-opener2": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    }
+  }
+}
