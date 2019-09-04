@@ -295,14 +295,6 @@ module.exports = [
         "id": "cordova-plugin-device.DeviceProxy",
         "pluginId": "cordova-plugin-device",
         "runs": true
-    },
-    {
-        "file": "plugins/jaeger.Html5Video/www/Html5Video.js",
-        "id": "jaeger.Html5Video.Html5Video",
-        "pluginId": "jaeger.Html5Video",
-        "clobbers": [
-            "plugins.html5Video"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -319,8 +311,7 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-file-opener2": "2.2.1",
     "cordova-plugin-fcm-with-dependecy-updated": "3.0.0",
-    "cordova-plugin-device": "2.0.3",
-    "jaeger.Html5Video": "1.2.2"
+    "cordova-plugin-device": "2.0.3"
 }
 // BOTTOM OF METADATA
 });

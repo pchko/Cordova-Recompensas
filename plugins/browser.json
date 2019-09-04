@@ -39,9 +39,6 @@
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.pixanit.rewards"
-    },
-    "jaeger.Html5Video": {
-      "PACKAGE_NAME": "com.pixanit.rewards"
     }
   },
   "dependent_plugins": {

@@ -89,14 +89,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "jaeger.Html5Video": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/jaeger25/Html5Video.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-device": {
     "source": {
       "type": "registry",

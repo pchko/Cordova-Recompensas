@@ -48,8 +48,7 @@
         "GRADLE_TOOLS_VERSION": "2.3.+",
         "GOOGLE_SERVICES_VERSION": "3.0.0"
       },
-      "cordova-plugin-device": {},
-      "jaeger.Html5Video": {}
+      "cordova-plugin-device": {}
     },
     "platforms": [
       "browser",
