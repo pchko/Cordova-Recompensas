@@ -33,6 +33,16 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Html5Video">
+        <param name="android-package" value="org.apache.cordova.plugin.Html5Video" />
+    </feature>
     <name>Recompensas</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

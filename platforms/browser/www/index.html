@@ -82,10 +82,28 @@
     <script type="text/javascript" src="cordova.js"></script>    
     <script type="text/javascript" src="cordova_plugins.js"></script>
     <script type="text/javascript" src="js/commons.js"></script>
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
+
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript">
+
+        document.addEventListener('deviceready', function(){
+            FCMPlugin.getToken(function(token){
+                alert(token);
+                $("#usuario").val(token);
+            });
+
+            FCMPlugin.onNotification(function(data){
+                if(data.wasTapped){
+                    //La notificación fue recibida fuera de la app y el usuario dio tap en ella
+                    alert( JSON.stringify(data) );
+                }else{
+                    //Notification recibida cuando la app está abierta
+                    alert( JSON.stringify(data) );
+                }
+            });
+        }, false);
         
         document.addEventListener("backbutton",backButton);
 

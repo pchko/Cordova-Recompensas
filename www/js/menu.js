@@ -13,7 +13,8 @@ $(document).on("ready",function(){
     content_height = height - 45;
 
     var html = '<ul>';
-        html += '<li><img src="img/banner.png" style="width:100%" /></li>';
+        //html += '<li><img src="img/banner.png" style="width:100%" /></li>';
+        html+='<li id="video"></li>';
         html += '<li><a href="home.html"><img src="img/menu/noticias.png" /><span>Home</span></a></li>';
         //html += '<li><a href="acumulacion.html"><img src="img/menu/registro.png" /><span>Acumular puntos</span></a></li>';
         //html += '<li><a href="redencion.html"><img src="img/menu/registro.png" /><span>Redimir productos</span></a></li>';

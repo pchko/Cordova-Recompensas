@@ -273,6 +273,36 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.fileOpener2"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+        "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+        "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+        "clobbers": [
+            "FCMPlugin"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "pluginId": "cordova-plugin-device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+        "id": "cordova-plugin-device.DeviceProxy",
+        "pluginId": "cordova-plugin-device",
+        "runs": true
+    },
+    {
+        "file": "plugins/jaeger.Html5Video/www/Html5Video.js",
+        "id": "jaeger.Html5Video.Html5Video",
+        "pluginId": "jaeger.Html5Video",
+        "clobbers": [
+            "plugins.html5Video"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -287,7 +317,10 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-file-transfer": "1.7.1",
-    "cordova-plugin-file-opener2": "2.2.1"
+    "cordova-plugin-file-opener2": "2.2.1",
+    "cordova-plugin-fcm-with-dependecy-updated": "3.0.0",
+    "cordova-plugin-device": "2.0.3",
+    "jaeger.Html5Video": "1.2.2"
 }
 // BOTTOM OF METADATA
 });

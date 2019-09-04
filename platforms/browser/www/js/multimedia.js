@@ -1,5 +1,5 @@
-//document.addEventListener('deviceready',function(){
-    alert("ready");
+document.addEventListener('deviceready',function(){
+
     //alert(localStorage.getItem('user'));
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
         var user = JSON.parse(localStorage.getItem('user'));
@@ -13,7 +13,7 @@
         };
 
         var successFunction = function(data){
-            alert(JSON.stringify(data));
+            
             if(data.length){
                 var listRedencion = $("#listRedencion");
                 if(data.length > 0){
@@ -27,45 +27,64 @@
 
                         switch(object.tipo){
                             case "v":
-                                var btn = $("<a>", {href:"javascript:;", class:"btn"}).text("Click para ver el video");
+                                var btn = $("<a>", {href:"javascript:;", class:"btn"}).text("Click aquí para ver el video");
                                 btn.click(function(){
+                                    var options = { dimBackground: true };
+                                    SpinnerPlugin.activityStart("Espere por favor...", options);
 
                                     var fileTransfer = new FileTransfer();
-                                    var uri = encodeURI("https://cdn0.talenteca.com/thumbnail-images/TK_POST_THUMBNAIL_PIC-2019_04_30_10_16_37-90817676386344698917.jpg");
-                                    alert(cordova.file.cacheDirectory);
+                                    var uri = encodeURI(object.ruta);
+                                    //alert(cordova.file.cacheDirectory);
+                                    var today = new Date();
+                                    var dd = today.getDate();
+                                    var mm = today.getMonth() + 1; //January is 0!
+                                    var yyyy = today.getFullYear();
+                                    if (dd < 10) {
+                                      dd = '0' + dd;
+                                    } 
+                                    if (mm < 10) {
+                                      mm = '0' + mm;
+                                    } 
+                                    var today = dd+'-'+mm+'-'+yyyy;
                                     fileTransfer.download(
                                         uri,
-                                        cordova.file.cacheDirectory,
+                                        cordova.file.cacheDirectory+today+"_"+object.id+"_file."+object.ext, //Se guarda en la caché de la app (El SO puede elminarlo)
                                         function(entry) {
-                                            alert("download complete: " + entry.toURL());
+                                            SpinnerPlugin.activityStop();
+                                            //alert("download complete: " + entry.toURL());
+                                            //Se abre el archivo
+                                            cordova.plugins.fileOpener2.open(
+                                                entry.toURL(),
+                                                object.mime,
+                                                {
+                                                    error : function(e) {
+                                                        //SpinnerPlugin.activityStop();
+                                                        navigator.notification.alert('Error al abrir el contenido: ' + e.status + ' - Motivo: ' + e.message+". Verifica que tengas una aplicación que permita abrir el contenido");
+                                                    },
+                                                    success : function () {
+
+                                                        //alert('file opened successfully');
+                                                    }
+                                                }
+                                            );
                                         },
+
                                         function(error) {
-                                            alert("download error source " + error.source);
+                                            SpinnerPlugin.activityStop();
+                                            navigator.notification.alert("Error al obtener el contenido: "+error.source+". Codigo: "+error.code);
+                                            /*alert("download error source " + error.source);
                                             alert("download error target " + error.target);
-                                            alert("download error code" + error.code);
+                                            alert("download error code" + error.code);*/
                                         }
                                     );
 
-
-                                    /*alert("click");
-                                    cordova.plugins.fileOpener2.open(
-                                        object.ruta,
-                                        object.mime,
-                                        {
-                                            error : function(e) {
-                                                alert('Error status: ' + e.status + ' - Error message: ' + e.message);
-                                            },
-                                            success : function () {
-                                                alert('file opened successfully');
-                                            }
-                                        }
-                                    );*/
-                                });    
-                                card.append(header.append(nombre)).append(footer.append(btn));
+                                });
+                                var logo = $("<img>", { src : "img/video-play-r.png" }).css({height: "auto", width:"50%"});
+                                card.append(header.append(logo).css({"text-align":"center"})).append(body.append(nombre)).append(footer.append(btn));
                             break;
 
                             case "b":
-                                var img = $("<img>", { src : object.ruta }).css({width : "100%"});
+                                var img = $("<img>", { src : object.ruta }).css({width : "100%", "border-radius" : "8px"});
                                 card.append(header.append(img)).append(body.append(nombre));
                             break;
 
@@ -95,7 +114,7 @@
         window.location="index.html";
     }
 
-//}, false);
+}, false);
 
 function connectServer(link, data, beforeFunction, successFunction, failFunction){
     $.ajax({
@@ -115,4 +134,9 @@ function connectServer(link, data, beforeFunction, successFunction, failFunction
         failFunction && failFunction(data);
         console.log(data);
     });
+}
+
+document.addEventListener("backbutton",backButton);
+function backButton(){      
+    window.location = "home.html";
 }

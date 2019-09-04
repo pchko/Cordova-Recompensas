@@ -17,7 +17,8 @@ $(document).on("ready",function(){
         html += '<li><a href="home.html"><img src="img/menu/noticias.png" /><span>Home</span></a></li>';
         //html += '<li><a href="acumulacion.html"><img src="img/menu/registro.png" /><span>Acumular puntos</span></a></li>';
         //html += '<li><a href="redencion.html"><img src="img/menu/registro.png" /><span>Redimir productos</span></a></li>';
-        html += '<li><a href="multimedia.html"><img src="img/menu/registro.png" /><span>Multimedia</span></a></li>';
+        html += '<li><a href="multimedia.html"><img src="img/menu/multimedia.png" /><span>Multimedia</span></a></li>';
+        html += '<li><a href="comentarios.html"><img src="img/menu/testimonios.png" /><span>Comentarios</span></a></li>';
         html += '<li><a id="close_sesion" href="javascript:;"><img src="img/menu/entrar.png" /><span>Cerrar Sesión</span></a></li>';
         html += '<li><a id="cerrar_app" href="javascript:;"><img src="img/menu/close.png" /><span>Salir</span></a></li>';
     html += '</ul>';

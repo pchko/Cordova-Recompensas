@@ -80,5 +80,29 @@
     "variables": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+"
     }
+  },
+  "cordova-plugin-fcm-with-dependecy-updated": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-with-dependecy-updated"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "jaeger.Html5Video": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/jaeger25/Html5Video.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

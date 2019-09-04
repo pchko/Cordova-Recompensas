@@ -1,5 +1,42 @@
 document.addEventListener('deviceready', function(){
 
+    $.ajax({
+        crossDomain:true,
+        type: "POST",
+        timeout: 8000,
+        url: "http://pixanit.com/lala/ws/index.php",
+        data: {m:"getConfigRegistro", key : apiKey},
+        dataType: "json",
+        beforeSend: function(){
+            //alert(data);
+            //window.plugins.spinnerDialog.show("Espere", "Iniciando sesión", true);
+            var options = { dimBackground: true };
+            SpinnerPlugin.activityStart("Espere por favor...", options);
+        }
+    }).done(function(data){
+        //window.plugins.spinnerDialog.hide();
+        SpinnerPlugin.activityStop();
+        //alert(JSON.stringify(data));
+        if(data && data.zonas){
+            $.each(data.zonas, function(index, element){
+                var option = $("<option>", {value : element.idZona, text : element.nombre});
+                $("#id_zona").append(option);
+            });
+        }
+
+        if(data && data.puestos){
+            $.each(data.puestos, function(index, element){
+                var option = $("<option>", {value : element.idPuesto, text : element.nombre});
+                $("#id_puesto").append(option);
+            });
+        }
+        
+    }).fail(function(data){
+        //window.plugins.spinnerDialog.hide();
+        SpinnerPlugin.activityStop();
+        alert(JSON.stringify(data));
+    });
+
     var today = new Date();
     var day = String(today.getDate()).padStart(2, '0');
     var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -34,7 +71,9 @@ document.addEventListener('deviceready', function(){
             username: {"required" : true, regex : "[A-za-z0-9]{6,15}"},
             password: {"required" : true, regex : /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/ },
             repassword: {"required" : true, regex : /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, confirmPassword : true },
-            terminos : {"required" : true}
+            terminos : {"required" : true},
+            id_zona : {"required" : true},
+            id_puesto : {"required" : true}
         },
         messages: {
             nombre: {"required" : "Debes ingresar un nombre", regex : "Ingresa un nombre valido"},
@@ -45,11 +84,13 @@ document.addEventListener('deviceready', function(){
             username: {"required" : "Ingresa un usuario", regex : "Username no válido, mínimo 6 caracteres y puede contener unicamente letras y numeros"},
             password: {"required" : "Ingresa una contraseña", regex : "La contraseña debe ser de al menos 8 caracteres, llevar una mayuscula, minuscula y un numero"},
             repassword: {"required" : "Confirma tu contraseña", regex : "La contraseña debe ser de al menos 8 caracteres, llevar una mayuscula, minuscula y un numero"},
-            terminos : {"required" : "Debes aceptar los términos y condiciones"}
+            terminos : {"required" : "Debes aceptar los términos y condiciones"},
+            id_zona : {"required" : "Debes elegir una zona"},
+            id_puesto : {"required" : "Debes elegir un puesto"}
         },
         submitHandler: function(form, event){     
             event.preventDefault();
-            var data = {nombre : $("#nombre").val(), ap_pat: $("#apPaterno").val(), ap_mat: $("#apMaterno").val(), mail : $("#mail").val(), fechaNacimiento : $("#fechaNacimiento").val(), usuario : $("#username").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'registro'};
+            var data = {nombre : $("#nombre").val(), ap_pat: $("#apPaterno").val(), ap_mat: $("#apMaterno").val(), mail : $("#mail").val(), fechaNacimiento : $("#fechaNacimiento").val(), usuario : $("#username").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'registro', id_zona : $("#id_zona").val(), id_puesto : $("#id_puesto").val()};
             $.ajax({
                 crossDomain:true,
                 type: "POST",
