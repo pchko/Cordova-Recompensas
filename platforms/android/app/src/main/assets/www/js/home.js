@@ -1,5 +1,24 @@
 document.addEventListener("deviceready",function(){
 
+    FCMPlugin.onTokenRefresh(function(token){
+        navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+            localStorage.clear();
+            window.location = "index.html";
+        }, "Sesión vencida", "Aceptar");
+    });
+
+    FCMPlugin.onNotification(function(data){
+        if(data.wasTapped){
+          //Notification was received on device tray and tapped by the user.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }else{
+          //Notification was received in foreground. Maybe the user needs to be notified.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }
+    });
+
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
         var video = $("<video>", {id : "myvideo", autoplay : true, controls : true}).css({height:"200px", width:"100%"});
         var source = $("<source>",{src: "img/principal.mp4", type:"video/mp4"});

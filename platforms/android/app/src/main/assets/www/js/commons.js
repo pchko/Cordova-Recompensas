@@ -1,5 +1,4 @@
-var assets_url = "http://wiinikil.com/prospectos/index.php/media/";
-var services_url = "http://wiinikil.com/prospectos/index.php/api/service/";
+
 var apiKey = "PXLALA";
 
 var is_online = false;

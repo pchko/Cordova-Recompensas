@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
       "id": "cordova-plugin-dialogs.notification",
       "file": "plugins/cordova-plugin-dialogs/www/notification.js",
       "pluginId": "cordova-plugin-dialogs",
@@ -14,6 +22,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-dialogs",
       "merges": [
         "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+      "clobbers": [
+        "FCMPlugin"
       ]
     },
     {
@@ -267,34 +283,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "window.plugins.spinnerDialog"
       ]
-    },
-    {
-      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-      "clobbers": [
-        "FCMPlugin"
-      ]
-    },
-    {
-      "id": "cordova-plugin-device.device",
-      "file": "plugins/cordova-plugin-device/www/device.js",
-      "pluginId": "cordova-plugin-device",
-      "clobbers": [
-        "device"
-      ]
-    },
-    {
-      "id": "jaeger.Html5Video.Html5Video",
-      "file": "plugins/jaeger.Html5Video/www/Html5Video.js",
-      "pluginId": "jaeger.Html5Video",
-      "clobbers": [
-        "plugins.html5Video"
-      ]
     }
   ];
   module.exports.metadata = {
+    "cordova-plugin-device": "2.0.3",
     "cordova-plugin-dialogs": "2.0.2",
+    "cordova-plugin-fcm-with-dependecy-updated": "3.0.0",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-file-opener2": "2.2.1",
     "cordova-plugin-file-transfer": "1.7.1",
@@ -303,9 +297,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-pdialog": "2.0.1",
     "cordova-plugin-spinner": "1.1.0",
     "cordova-plugin-spinnerdialog": "1.3.2",
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-fcm-with-dependecy-updated": "3.0.0",
-    "cordova-plugin-device": "2.0.3",
-    "jaeger.Html5Video": "1.2.2"
+    "cordova-plugin-whitelist": "1.3.4"
   };
 });

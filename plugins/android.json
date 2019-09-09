@@ -7,7 +7,17 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
     "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "FCM_CORE_VERSION": "16.0.9",
+      "FCM_VERSION": "18.0.0",
+      "GRADLE_TOOLS_VERSION": "2.3.+",
+      "GOOGLE_SERVICES_VERSION": "3.0.0",
       "PACKAGE_NAME": "com.pixanit.rewards"
     },
     "cordova-plugin-file-opener2": {
@@ -33,16 +43,6 @@
       "PACKAGE_NAME": "com.pixanit.rewards"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.pixanit.rewards"
-    },
-    "cordova-plugin-fcm-with-dependecy-updated": {
-      "FCM_CORE_VERSION": "16.0.9",
-      "FCM_VERSION": "18.0.0",
-      "GRADLE_TOOLS_VERSION": "2.3.+",
-      "GOOGLE_SERVICES_VERSION": "3.0.0",
-      "PACKAGE_NAME": "com.pixanit.rewards"
-    },
-    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.pixanit.rewards"
     }
   },

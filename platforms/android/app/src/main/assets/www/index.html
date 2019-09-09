@@ -62,6 +62,7 @@
                     <div class="ui-element">
                         <label for="usuario" style="font-weight:bold">Ingrese su contraseña: *</label>
                         <input id="password" type="password" name="password" placeholder="Contraseña"/>
+                        <input id="token" type="hidden"/>
                     </div>
                     <div class="ui-element">
                         <center><button id="btnLogin" type="submit" class="btn" data-action="login">Iniciar sesión</button></center>                    
@@ -90,19 +91,11 @@
 
         document.addEventListener('deviceready', function(){
             FCMPlugin.getToken(function(token){
-                alert(token);
-                $("#usuario").val(token);
+                //alert(token);
+                localStorage.setItem('token', token);
+                $("#token").val(token);
             });
 
-            FCMPlugin.onNotification(function(data){
-                if(data.wasTapped){
-                    //La notificación fue recibida fuera de la app y el usuario dio tap en ella
-                    alert( JSON.stringify(data) );
-                }else{
-                    //Notification recibida cuando la app está abierta
-                    alert( JSON.stringify(data) );
-                }
-            });
         }, false);
         
         document.addEventListener("backbutton",backButton);

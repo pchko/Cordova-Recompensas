@@ -1,11 +1,31 @@
 document.addEventListener('deviceready',function(){
 
+    FCMPlugin.onTokenRefresh(function(token){
+        
+        navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+            localStorage.clear();
+            window.location = "index.html";
+        }, "Sesión vencida", "Aceptar");
+    });
+
+    FCMPlugin.onNotification(function(data){
+        if(data.wasTapped){
+          //Notification was received on device tray and tapped by the user.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }else{
+          //Notification was received in foreground. Maybe the user needs to be notified.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }
+    });
+
     //alert(localStorage.getItem('user'));
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
         var user = JSON.parse(localStorage.getItem('user'));
         //$("#id_usuario").val(user.idUsuario);
         var apiKey = "PXLALA";
-        var link = "http://pixanit.com/lala/ws/index.php";
+        var link = "https://pixanit.com/lala/ws/index.php";
         var data = {m: 'multimedia', key : apiKey};
         var beforeFunction = function(){
             var options = { dimBackground: true };

@@ -1,6 +1,25 @@
 document.addEventListener('deviceready',function(){
-    //alert("ready");
-    //alert(localStorage.getItem('user'));
+
+    FCMPlugin.onTokenRefresh(function(token){
+        
+        navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+            localStorage.clear();
+            window.location = "index.html";
+        }, "Sesión vencida", "Aceptar");
+    });
+
+    FCMPlugin.onNotification(function(data){
+        if(data.wasTapped){
+          //Notification was received on device tray and tapped by the user.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }else{
+          //Notification was received in foreground. Maybe the user needs to be notified.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }
+    });
+
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
         var user = JSON.parse(localStorage.getItem('user'));
         $("#id_usuario").val(user.idUsuario);
@@ -24,7 +43,7 @@ document.addEventListener('deviceready',function(){
                     crossDomain:true,
                     type: "POST",
                     timeout: 8000,
-                    url: "http://pixanit.com/lala/ws/index.php",
+                    url: "https://pixanit.com/lala/ws/index.php",
                     data: data,
                     dataType: "json",
                     beforeSend: function(){
