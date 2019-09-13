@@ -39,11 +39,11 @@ document.addEventListener('deviceready',function(){
                 if(data.length > 0){
                     $.each(data, function(index, object){
 
-                        var card = $("<div>").css({margin: "0 auto", "border-radius": "8px", "padding":"2px 5px", border: "1px solid green"});
+                        var card = $("<div>").css({margin: "0 auto", "border-radius": "8px", "padding":"2px 5px", border: "1px solid yellow", "background-color": "rgba(0,0,0,0.3)"});
                         var header = $("<div>").css({"padding":"0 2px"});
                         var body = $("<div>").css({"padding":"0 2px"});
                         var footer = $("<div>").css({"padding":"0 2px"});
-                        var nombre = $("<p>").text("Nombre: "+object.nombre).css({color:"maroon"});
+                        var nombre = $("<p>").text("Nombre: "+object.nombre).css({color:"yellow"});
 
                         switch(object.tipo){
                             case "v":
@@ -140,7 +140,7 @@ function connectServer(link, data, beforeFunction, successFunction, failFunction
     $.ajax({
         crossDomain:true,
         type: "POST",
-        timeout: 8000,
+        timeout: 10000,
         url: link,
         data: data,
         dataType: "json",
