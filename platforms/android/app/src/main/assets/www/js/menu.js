@@ -14,12 +14,14 @@ $(document).on("ready",function(){
 
     var html = '<ul>';
         //html += '<li><img src="img/banner.png" style="width:100%" /></li>';
-        html+='<li id="video"></li>';
-        html += '<li><a href="home.html"><img src="img/menu/noticias.png" /><span>Home</span></a></li>';
-        //html += '<li><a href="acumulacion.html"><img src="img/menu/registro.png" /><span>Acumular puntos</span></a></li>';
-        //html += '<li><a href="redencion.html"><img src="img/menu/registro.png" /><span>Redimir productos</span></a></li>';
-        html += '<li><a href="multimedia.html"><img src="img/menu/multimedia.png" /><span>Multimedia</span></a></li>';
-        html += '<li><a href="comentarios.html"><img src="img/menu/testimonios.png" /><span>Comentarios</span></a></li>';
+        //html+='<li id="video"></li>';
+        html += '<li><a href="echale.html"><span><i class="fa fa-home" aria-hidden="true"></i> Échale los kilos y ponte la máscara</span></a></li>';
+        html += '<li><a href="mision.html"><img src="img/menu/registro.png" /><span> La misión</span></a></li>';
+        html += '<li><a href="bases.html"><img src="img/menu/registro.png" /><span> Bases del concurso</span></a></li>';
+        html += '<li><a href="sku.html"><span><i class="fa fa-barcode" aria-hidden="true"></i> SKU\'s Participantes</span></a></li>';
+        html += '<li><a href="gana.html"><span><i class="fa fa-plus-circle" aria-hidden="true"></i> Gana más</span></a></li>';
+        html += '<li><a href="multimedia.html"><span><i class="fa fa-video" aria-hidden="true"></i> Videos</span></a></li>';
+        html += '<li><a href="comentarios.html"><span><i class="fa fa-comments" aria-hidden="true"></i> Comentarios</span></a></li>';
         html += '<li><a id="close_sesion" href="javascript:;"><img src="img/menu/entrar.png" /><span>Cerrar Sesión</span></a></li>';
         html += '<li><a id="cerrar_app" href="javascript:;"><img src="img/menu/close.png" /><span>Salir</span></a></li>';
     html += '</ul>';
