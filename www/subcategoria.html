@@ -6,12 +6,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link type="text/css" rel="stylesheet" href="css/layout.css" />
-    <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>    
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>
-    <script type="text/javascript" src="js/home.js"></script>    
     <style type="text/css">
 
         #btnServicio{
@@ -50,11 +44,11 @@
             border-radius: 7px
         }
 
-        /*body{
+        body{
             background: url(img/bg-home.jpeg) no-repeat;
             background-size: cover;
             /*background-position: top center;*/
-        }*/
+        }
 
         #wrapper{
             background: rgba(0,0,0,0) !important;
@@ -68,7 +62,7 @@
     </style>
 </head>
 <body>
-    <div class="alert" style="display:none">   
+    <div class="alert" style="display:none">        
         <div class="top"></div> 
         <div class="main"></div> 
         <div class="container">
@@ -81,28 +75,35 @@
     </div>
     <div id="header">
         <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
-        <p class="title" style="font-size: 18px">Échale los kilos y ponte la máscara</p>
+        <p class="title">SKU's Participantes</p>
     </div>
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
-                <div style="padding:0 3vw;">
-                    <div>
-                        <p>Échale los kilos y ponte la máscara con jamones y salchichas Nutri Deli</p>
+                <div style="padding:0 3vw; margin-top: calc(100vh - 260px)">
+                    <div class="ui-element">
+                        <h3 style="color:#d9c31d; font-weight: bold;">Elige una categoria</h3>
                     </div>
-                    <div>
-                        <p>Nuestra fuerza de ventas necesitaba un nuevo reto, por ello creamos "Échale los kilos y Ponte la máscara"</p>
+                    <div id="divSubcategorias">
+                        
                     </div>
-                    <div>
-                        <p>Un programa que empodera, da fuerza y crea un vinculo fraternal entre sus seguidores a través de la sana competencia y un concepto rector: La lucha libre.</p>
+                    <!--div class="ui-element">
+                        <a href="multimedia.html" class="btn"> Ver contenido multimedia </a>
                     </div>
-                    <div>
-                        <p>El reto no es sencillo, con apoyo de nuestros luchadores lograremos posicionar la línea de cárnicos Nutri Deli a un nuevo nivel y ganar el Cinturón de Cárnicos a Nivel Nacional</p>
-                    </div>
+                    <div class="ui-element">
+                        <a href="comentarios.html" class="btn"> Agregar un comentario </a>
+                    </div-->
                 </div>
             </div>
         </div>
     </div>
-    <div id="menu"></div>  
+    <div id="menu"></div>
+    <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/subcategorias.js"></script> 
 </body>
 </html>
