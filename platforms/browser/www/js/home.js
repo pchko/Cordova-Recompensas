@@ -1,9 +1,102 @@
+if(localStorage.getItem("user") == null || localStorage.getItem("user") == undefined){
+    localStorage.clear();
+    window.location = "index.html";
+}
+
 document.addEventListener("deviceready",function(){
 
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
-        var video = $("<video>", {id : "myvideo", autoplay : true, controls : true}).css({height:"200px", width:"100%"});
-        var source = $("<source>",{src: "img/principal.mp4", type:"video/mp4"});
-        $("#video").append(video.append(source));
+
+        FCMPlugin.onTokenRefresh(function(token){
+            navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+                localStorage.clear();
+                window.location = "index.html";
+            }, "Sesión vencida", "Aceptar");
+        });
+
+        FCMPlugin.onNotification(function(data){
+            if(data.wasTapped){
+              //Notification was received on device tray and tapped by the user.
+              navigator.notification.alert(data.body,null, data.title, "Aceptar");
+              //alert( JSON.stringify(data) );
+            }else{
+              //Notification was received in foreground. Maybe the user needs to be notified.
+              navigator.notification.alert(data.body,null, data.title, "Aceptar");
+              //alert( JSON.stringify(data) );
+            }
+        });
+
+        var apiKey = "PXLALA";
+        var link = "https://pixanit.com/lala/ws/index.php";
+        var data = {m: 'banners', key : apiKey};
+        var beforeFunction = function(){
+            var options = { dimBackground: true };
+            SpinnerPlugin.activityStart("Espere por favor", options);
+        };
+
+        var successFunction = function(data){
+            
+            if(data.length){
+                if(data.length > 0){
+                    localStorage.setItem("banners", JSON.stringify(data));
+                    $.each(data, function(index, object){
+
+                        var li = $("<li>",{ "data-target" : "#carrouselBanners", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
+                        $("#indicadorBanners").append(li);
+                        
+                        var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
+                        switch(object.tipo){
+                            case "b":
+                                var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "100%", height : "200px"});
+                                item.append(img);
+                                $("#carrusel2").append(item);
+
+                                img.click(function(){
+                                    $("#carrouselBanners").carousel('pause');
+                                });
+                            break;
+                        }
+
+                        $(".carousel-control").click(function(){
+                            $("#carrouselBanners").carousel('cycle');
+                        });
+
+                        li.click(function(){
+                            $("#carrouselBanners").carousel('cycle');
+                        });
+                    });    
+                }
+            }
+            SpinnerPlugin.activityStop();
+
+        };
+
+        var failFunction = function(data){
+            SpinnerPlugin.activityStop();
+            alert(JSON.stringify(data));  
+        };
+
+        connectServer(link, data, beforeFunction, successFunction, failFunction);
+
+        function connectServer(link, data, beforeFunction, successFunction, failFunction){
+            $.ajax({
+                crossDomain:true,
+                type: "POST",
+                timeout: 10000,
+                url: link,
+                data: data,
+                dataType: "json",
+                beforeSend: function(){
+                    beforeFunction && beforeFunction();
+                }
+            }).done(function(data){
+                successFunction && successFunction(data);
+                console.log(data);
+            }).fail(function(data){
+                failFunction && failFunction(data);
+                console.log(data);
+            });
+        }
 
     	var anuncio = $(".alert");
     	document.addEventListener("backbutton",backButton);

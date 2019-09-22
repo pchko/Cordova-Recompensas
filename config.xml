@@ -9,7 +9,7 @@
     </author>
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-minSdkVersion" value="19" />
-    <content src="index.html" />
+    <content src="home.html" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />

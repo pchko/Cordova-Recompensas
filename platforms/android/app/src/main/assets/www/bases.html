@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/layout.css" />
     <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
     <script type="text/javascript" src="cordova.js"></script>    
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
-    <script type="text/javascript" src="js/home.js"></script>    
+    <script type="text/javascript" src="js/carouselMenu.js"></script>
     <style type="text/css">
 
         #btnServicio{
@@ -50,11 +51,21 @@
             border-radius: 7px
         }
 
-        /*body{
-            background: url(img/bg-home.jpeg) no-repeat;
+        body{
+            /*background: url(img/bg-home.jpeg) no-repeat;
             background-size: cover;
             /*background-position: top center;*/
-        }*/
+
+            background: rgba(59,125,80,0.75);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(59,125,80,0.75)), color-stop(20%, rgba(46,112,68,0.8)), color-stop(48%, rgba(16,74,35,0.87)), color-stop(75%, rgba(8,48,21,0.94)), color-stop(100%, rgba(3,41,16,1)));
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: radial-gradient(ellipse at center, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7d50', endColorstr='#032910', GradientType=1 );
+
+        }
 
         #wrapper{
             background: rgba(0,0,0,0) !important;
@@ -64,11 +75,17 @@
             min-height: inherit;
         }
 
+        p{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
        
     </style>
 </head>
 <body>
-    <div class="alert">        
+    <div class="alert" style="display:none">   
         <div class="top"></div> 
         <div class="main"></div> 
         <div class="container">
@@ -81,12 +98,20 @@
     </div>
     <div id="header">
         <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
-        <p class="title" style="font-size: 18px">Échale los kilos y ponte la máscara</p>
+        <p class="title" style="font-size: 18px">Bases del Concurso</p>
     </div>
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
                 <div style="padding:0 3vw;">
+                    <div style="display:-webkit-inline-box">
+                        <div style="width: 90px; padding: 0 3px;">
+                            <img src="img/ic_launcher.png" style="width: 100%">
+                        </div>    
+                        <div style="width: calc(100vw - 160px);">
+                            <p>Échale los kilos y ponte la máscara con jamones y salchichas Nutri Deli</p>
+                        </div>    
+                    </div>
                     <div>
                         <p>Ya inscrito, conocerás cómo vencer tus propios límites y vender más, a través de los tips y consejos de tu colega luchador de la AAA te dará día con día. Los verdaderos héroes serán capaces de superer sus propias metas y ganar increíbles incentivos económicos</p>
                     </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>    
+    <meta charset="utf-8">
     <title>Acumulación</title>   
     <meta name="format-detection" content="telephone=no">        
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -34,15 +35,26 @@
 
 
         label{
-            color:maroon;
-            font-weight: bold;
-            font-size: 1.15em
+            color:yellow;
+            font-size: 3vh
         }
 
         p{
-            text-align: center;
-            font-size: 1.1em;
             font-weight: bold;
+        }
+
+        body{
+            background: url(img/bg-comentarios.jpeg) no-repeat;
+            background-size: cover;
+            /*background-position: top center;*/
+        }
+
+        #wrapper{
+            background: rgba(0,0,0,0) !important;
+        }
+
+        .content{
+            min-height: inherit;
         }
 
        
@@ -50,7 +62,7 @@
         
 </head>    
 <body>
-    <div class="alert">        
+    <div class="alert" style="display:none">   
         <div class="top"></div> 
         <div class="main"></div> 
         <div class="container">
@@ -68,28 +80,30 @@
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
-                <div style="padding:0 10px; margin-top:1em">
-                    <center>
-                    <img style="height: 150px; width: auto" src="img/nutrileche.png">
-                    </center>
-                </div>
-                <div class="ui-element">
-                    <h2>Hola <span id="spanName"></span>, aquí puedes subir tus dudas y/o sugerencias que tengas.</h2>
-                </div>
-                <form id="formComentario"> 
-                    <div class="ui-element">
-                        <label for="comentario" style="font-weight:bold">Ingresa tu comentario: *</label>
-                        <textarea id="comentario" type="text" name="comentario" placeholder="Máximo 128 caracteres"/></textarea>
-                    </div>
-                    <!--div class="ui-element">
-                        <label for="password" style="font-weight:bold">Ingresa tu contraseña para confirmar: *</label>
-                        <input id="password" type="password" name="password" placeholder="Ingresa tu contraseña para confirmar"/>
+                <div style="padding:0 3vw; margin-top:28vh">
+                    <!--div style="padding:0 3px; margin-top:1em">
+                        <center>
+                        <img style="height: 150px; width: auto" src="img/nutrileche.png">
+                        </center>
                     </div-->
-                    <div class="ui-element">
-                        <input id="id_usuario" type="hidden" name="id_usuario"/>
-                        <center><button id="btnAcumular" type="submit" class="btn">Enviar comentario</button></center>                    
+                    <div class="ui-element" style="margin-bottom: inherit">
+                        <p style="color: yellow; text-align:justify; font-size: 3vh">Hola <span id="spanName"></span>, aquí puedes subir tus dudas y/o sugerencias que tengas.</p>
                     </div>
-                </form>
+                    <form id="formComentario"> 
+                        <div class="ui-element">
+                            <label for="comentario">Ingresa tu comentario: *</label>
+                            <textarea id="comentario" type="text" name="comentario" placeholder="Máximo 128 caracteres"/></textarea>
+                        </div>
+                        <!--div class="ui-element">
+                            <label for="password" style="font-weight:bold">Ingresa tu contraseña para confirmar: *</label>
+                            <input id="password" type="password" name="password" placeholder="Ingresa tu contraseña para confirmar"/>
+                        </div-->
+                        <div class="ui-element">
+                            <input id="id_usuario" type="hidden" name="id_usuario"/>
+                            <center><button id="btnAcumular" type="submit" class="btn">Enviar comentario</button></center>                    
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

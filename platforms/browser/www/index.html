@@ -27,7 +27,7 @@
 
 
         label{
-            color:maroon;
+            color:yellow;
             font-weight: bold;
             font-size: 1.15em
         }
@@ -38,6 +38,19 @@
             font-weight: bold;
         }
 
+        body{
+            background: url(img/bg-index.jpeg) no-repeat;
+            background-size: cover;
+            /*background-position: top center;*/
+        }
+
+        #wrapper{
+            background: rgba(0,0,0,0) !important;
+        }
+
+        .content{
+            min-height: inherit;
+        }
        
     </style>
         
@@ -49,32 +62,30 @@
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
-                <div style="padding:0 10px; margin-top:1em">
-                    <center>
-                    <img style="width: 100%;" src="img/nutrileche.png">
-                    </center>
-                </div>
-                <form id="formLogin" onsubmit="return false;"> 
-                    <div class="ui-element">
-                        <label for="usuario" style="font-weight:bold">Ingrese su usuario: *</label>
-                        <input id="usuario" type="text" name="usuario" placeholder="Username"/>
-                    </div>
-                    <div class="ui-element">
-                        <label for="usuario" style="font-weight:bold">Ingrese su contraseña: *</label>
-                        <input id="password" type="password" name="password" placeholder="Contraseña"/>
-                    </div>
-                    <div class="ui-element">
-                        <center><button id="btnLogin" type="submit" class="btn" data-action="login">Iniciar sesión</button></center>                    
-                    </div>
-                </form>
-                <div>
-                    <center>
-                        <p><a href="recover.html" style="color:Red; font-weight:bold"><u style="color:maroon">Olvidé mi contraseña.</u></a>
-                    </center>
-                    <p id="console" style="font-weight:bold; font-size:1em; text-align:center"></p>
-                </div>                
-                <div class="ui-element" id="divCuenta">
-                    <p>Si no tienes una cuenta <a href="registro.html" style="color: black; font-weight:bold"><u style="color:maroon">Regístrate.</u></a><br><br><br>Para más información consulta nuestro <a href="https://www.lalafoods.com/spanish/about-lala/" style="color:maroon; font-weight:bold"><u>Aviso de Privacidad</u></a></p>
+                <div style="padding:0 3vw; margin-top: calc(100vh - 310px)">
+                    <form id="formLogin" onsubmit="return false;"> 
+                        <div class="ui-element">
+                            <label for="usuario" style="font-weight:bold">Ingrese su usuario: *</label>
+                            <input id="usuario" type="text" name="usuario" placeholder="Username"/>
+                        </div>
+                        <div class="ui-element">
+                            <label for="usuario" style="font-weight:bold">Ingrese su contraseña: *</label>
+                            <input id="password" type="password" name="password" placeholder="Contraseña"/>
+                            <input id="token" type="hidden"/>
+                        </div>
+                        <div class="ui-element">
+                            <center><button id="btnLogin" type="submit" class="btn" data-action="login">Iniciar sesión</button></center>                    
+                        </div>
+                    </form>
+                    <!--div>
+                        <center>
+                            <p><a href="recover.html" style="color:Red; font-weight:bold"><u style="color:maroon">Olvidé mi contraseña.</u></a>
+                        </center>
+                        <p id="console" style="font-weight:bold; font-size:1em; text-align:center"></p>
+                    </div>                
+                    <div class="ui-element" id="divCuenta">
+                        <p>Si no tienes una cuenta <a href="registro.html" style="color: black; font-weight:bold"><u style="color:maroon">Regístrate.</u></a><br><br><br>Para más información consulta nuestro <a href="https://www.lalafoods.com/spanish/about-lala/" style="color:maroon; font-weight:bold"><u>Aviso de Privacidad</u></a></p>
+                    </div-->
                 </div>
             </div>
         </div>
@@ -90,19 +101,11 @@
 
         document.addEventListener('deviceready', function(){
             FCMPlugin.getToken(function(token){
-                alert(token);
-                $("#usuario").val(token);
+                //alert(token);
+                localStorage.setItem('token', token);
+                $("#token").val(token);
             });
 
-            FCMPlugin.onNotification(function(data){
-                if(data.wasTapped){
-                    //La notificación fue recibida fuera de la app y el usuario dio tap en ella
-                    alert( JSON.stringify(data) );
-                }else{
-                    //Notification recibida cuando la app está abierta
-                    alert( JSON.stringify(data) );
-                }
-            });
         }, false);
         
         document.addEventListener("backbutton",backButton);

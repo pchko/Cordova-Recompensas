@@ -33,85 +33,60 @@ document.addEventListener('deviceready',function(){
         };
 
         var successFunction = function(data){
-            
+            console.log(data);
             if(data.length){
                 var listRedencion = $("#listRedencion");
                 if(data.length > 0){
                     $.each(data, function(index, object){
 
-                        var card = $("<div>").css({margin: "0 auto", "border-radius": "8px", "padding":"2px 5px", border: "1px solid yellow", "background-color": "rgba(0,0,0,0.3)"});
-                        var header = $("<div>").css({"padding":"0 2px"});
-                        var body = $("<div>").css({"padding":"0 2px"});
-                        var footer = $("<div>").css({"padding":"0 2px"});
-                        var nombre = $("<p>").text("Nombre: "+object.nombre).css({color:"yellow"});
-
+                        var li = $("<li>",{ "data-target" : "#myCarousel", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
+                        $("#indicador").append(li);
+                        
+                        var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
                         switch(object.tipo){
                             case "v":
-                                var btn = $("<a>", {href:"javascript:;", class:"btn"}).text("Click aquí para ver el video");
-                                btn.click(function(){
-                                    var options = { dimBackground: true };
-                                    SpinnerPlugin.activityStart("Espere por favor...", options);
 
-                                    var fileTransfer = new FileTransfer();
-                                    var uri = encodeURI(object.ruta);
-                                    //alert(cordova.file.cacheDirectory);
-                                    var today = new Date();
-                                    var dd = today.getDate();
-                                    var mm = today.getMonth() + 1; //January is 0!
-                                    var yyyy = today.getFullYear();
-                                    if (dd < 10) {
-                                      dd = '0' + dd;
-                                    } 
-                                    if (mm < 10) {
-                                      mm = '0' + mm;
-                                    } 
-                                    var today = dd+'-'+mm+'-'+yyyy;
-                                    fileTransfer.download(
-                                        uri,
-                                        cordova.file.cacheDirectory+today+"_"+object.id+"_file."+object.ext, //Se guarda en la caché de la app (El SO puede elminarlo)
-                                        function(entry) {
-                                            SpinnerPlugin.activityStop();
-                                            //alert("download complete: " + entry.toURL());
-                                            //Se abre el archivo
-                                            cordova.plugins.fileOpener2.open(
-                                                entry.toURL(),
-                                                object.mime,
-                                                {
-                                                    error : function(e) {
-                                                        //SpinnerPlugin.activityStop();
-                                                        navigator.notification.alert('Error al abrir el contenido: ' + e.status + ' - Motivo: ' + e.message+". Verifica que tengas una aplicación que permita abrir el contenido");
-                                                    },
-                                                    success : function () {
+                                var video = $("<video>", {id : "myvideo", autoplay : false, controls : true, poster : object.poster}).css({ width:"100%", height : "200px"});
+                                var source = $("<source>",{src: object.ruta, type: object.mime});
+                                
+                                /*
+                                var divTags = $("<div>",{class:"carousel-caption d-none d-md-block"});
+                                var title = $("<h5>").text(object.nombre);
+                                divTags.append(title);
+                                item.append(divTags);
+                                */
+                                item.append(video.append(source));
+                                
+                                $("#carrusel").append(item);
 
-                                                        //alert('file opened successfully');
-                                                    }
-                                                }
-                                            );
-                                        },
-
-                                        function(error) {
-                                            SpinnerPlugin.activityStop();
-                                            navigator.notification.alert("Error al obtener el contenido: "+error.source+". Codigo: "+error.code);
-                                            /*alert("download error source " + error.source);
-                                            alert("download error target " + error.target);
-                                            alert("download error code" + error.code);*/
-                                        }
-                                    );
-
+                                video.on("play",function(){
+                                    $("#myCarousel").carousel('pause');
                                 });
-                                var logo = $("<img>", { src : "img/video-play-r.png" }).css({height: "auto", width:"50%"});
-                                card.append(header.append(logo).css({"text-align":"center"})).append(body.append(nombre)).append(footer.append(btn));
+
+                                video.on("ended",function(){
+                                    $("#myCarousel").carousel('cycle');
+                                });
+                                
                             break;
 
                             case "b":
-                                var img = $("<img>", { src : object.ruta }).css({width : "100%", "border-radius" : "8px"});
-                                card.append(header.append(img)).append(body.append(nombre));
+                                var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "100%", height : "200px"});
+                                item.append(img);
+                                $("#carrusel").append(item);
+
+                                img.click(function(){
+                                    $("#myCarousel").carousel('pause');
+                                });
                             break;
-
                         }
-                        
-                        listRedencion.append(card).append("<br>");
 
+                        $(".carousel-control").click(function(){
+                            $("#myCarousel").carousel('cycle');
+                        });
+
+                        li.click(function(){
+                            $("#myCarousel").carousel('cycle');
+                        });
                     });    
                 }else{
                     listRedencion.html("<h2><u>No hay contenido multimedia para mostrar</u></h2>");

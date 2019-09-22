@@ -44,7 +44,7 @@ document.addEventListener('deviceready', function(){
             	});
             });
         }
-     	//navigator.notification.alert(JSON.stringify(data));
+     	navigator.notification.alert(JSON.stringify(data));
         
     }).fail(function(data){
         //window.plugins.spinnerDialog.hide();

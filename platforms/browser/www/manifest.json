@@ -7,5 +7,5 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "author": "Created by PixanIT",
   "icons": [],
-  "start_url": "index.html"
+  "start_url": "home.html"
 }

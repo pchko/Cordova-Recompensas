@@ -69,11 +69,27 @@
             min-height: inherit;
         }
 
-       
+        h4{
+            color: white;
+        }
+
+        .itemCat{
+            width: 27vw;
+            margin-right: 3vw;
+        }
+
+        p{
+            color: white;
+            font-weight: bold;
+        }
+
+        .content{
+            padding: 3vh 2vw;
+        }
     </style>
 </head>
 <body>
-    <div class="alert" style="display:none">   
+    <div class="alert" style="display:none">        
         <div class="top"></div> 
         <div class="main"></div> 
         <div class="container">
@@ -86,24 +102,31 @@
     </div>
     <div id="header">
         <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
-        <p class="title">SKU's Participantes</p>
+        <p class="title">Producto</p>
+        <div id="back" style="justify-content: center;">
+            <div style="align-self: center;">
+                <a id="linkBack" href="sku.html"><img src="img/back.png" style="height: 40px;"></a>
+            </div>
+        </div>
     </div>
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
                 <div style="padding:0 3vw;">
-                    <div class="ui-element">
-                        <h3 style="color:#d9c31d; font-weight: bold;">Elige una categoria</h3>
+                    <div style="display:-webkit-inline-box">
+                        <div style="width: 90px; padding: 0 3px;">
+                            <img src="img/ic_launcher.png" style="width: 100%">
+                        </div>    
+                        <div style="width: calc(100vw - 160px);">
+                            <p id="titleProducto"></p>
+                        </div>    
                     </div>
-                    <div id="divCategorias">
-                        
+                    <div>
+                        <p id="descripcion" style="font-size:18px; text-align: center;"></p>
                     </div>
-                    <!--div class="ui-element">
-                        <a href="multimedia.html" class="btn"> Ver contenido multimedia </a>
+                    <div style="text-align: center;">
+                        <img id="imagen" style="width: auto; height: auto">
                     </div>
-                    <div class="ui-element">
-                        <a href="comentarios.html" class="btn"> Agregar un comentario </a>
-                    </div-->
                 </div>
             </div>
         </div>
@@ -111,11 +134,10 @@
     <div id="menu"></div>
     <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
     <script type="text/javascript" src="cordova.js"></script>    
-    <script type="text/javascript" src="cordova_plugins.js"></script>
     <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/carouselMenu.js"></script>    
-    <script type="text/javascript" src="js/sku.js"></script> 
+    <script type="text/javascript" src="js/producto.js"></script> 
 </body>
 </html>

@@ -18,13 +18,33 @@ document.addEventListener('deviceready', function(){
         SpinnerPlugin.activityStop();
         var div = $("#divSubcategorias");
         if(data && data.subcategorias){
+        	var row = $("<div>").css({display: "inline-flex", width: "90vw"});
+        	localStorage.setItem("subcategorias", JSON.stringify(data.subcategorias));
             $.each(data.subcategorias, function(index, element){
-                var container = $("<div>",{class : "ui-element"});
-                var button = $("<a>",{ href : "subcategoria.html?id="+element.id, class : "btn"}).text(element.nombre);
-                div.append(container.append(button));
+            	var item = $("<div>",{class : "itemCat"});
+            	var img = $("<img>",{ src : element.imagen }).css({width: "auto", "max-width": "27vw", height: "20vh"});
+            	var nombre = $("<p>").text(element.nombre);
+
+            	item.append(img).append(nombre);
+            	
+            	if( (index+1) % 3 == 0 || data.subcategorias.length == index+1){
+            		console.log("If:"+(index+1));
+            		row.append(item);
+            		div.append(row);
+            		row = row.clone();
+            		row.empty();
+            	}else{
+            		console.log("Else:"+(index+1));
+            		
+            		row.append(item);
+            	}
+
+            	item.click(function(){
+            		window.location = "producto.html?idCat="+idCategory+"&index="+index;
+            	});
             });
         }
-     	navigator.notification.alert(JSON.stringify(data));
+     	//navigator.notification.alert(JSON.stringify(data));
         
     }).fail(function(data){
         //window.plugins.spinnerDialog.hide();

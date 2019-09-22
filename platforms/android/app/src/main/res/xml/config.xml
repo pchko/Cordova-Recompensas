@@ -47,7 +47,7 @@
     <author email="contacto@pixanit.com" href="http://facebook.com/pixanit">
         Created by PixanIT
     </author>
-    <content src="index.html" />
+    <content src="home.html" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
