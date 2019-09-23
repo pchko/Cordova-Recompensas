@@ -1,8 +1,8 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Recompensas",
-  "short_name": "Recompensas",
+  "name": "Echale los kilos",
+  "short_name": "Echale los kilos",
   "version": "com.pixanit.rewards",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "author": "Created by PixanIT",

@@ -9,8 +9,9 @@ document.addEventListener('deviceready', function(){
 
         $("#titleProducto").text(producto.nombre);
         $("#descripcion").text(producto.descripcion);
+        $("#texto").text(producto.text);
         $("#imagen").attr("src", producto.imagen);
-
+o
 
         $("#linkBack").attr("href", "subcategoria.html?id="+idCat);
 

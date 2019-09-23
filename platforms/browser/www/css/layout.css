@@ -53,7 +53,7 @@ q:before, q:after {
     content:none;
 }
 
-p {padding: 5px 0; font-size: 17px; line-height:20px; padding-bottom: 15px; text-align: justify; color:#111111;}
+p {padding: 5px 0; font-size: 17px; line-height:20px;  text-align: justify; color:#111111;}
 p.title {color: #fff; text-align: left;}
 ul {padding-bottom: 15px;}
 li {padding: 5px 0; font-size: 17px; line-height:20px; text-align: justify;}

@@ -11,6 +11,9 @@ document.addEventListener('deviceready', function(){
         $("#descripcion").text(producto.descripcion);
         $("#imagen").attr("src", producto.imagen);
 
+
+        $("#linkBack").attr("href", "subcategoria.html?id="+idCat);
+
         function getParameterByName(name, url=window.location.href){
             name = name.replace(/[\[\]]/g, "\\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),

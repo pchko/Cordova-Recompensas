@@ -14,7 +14,7 @@ document.addEventListener('deviceready', function(){
                     var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
                     switch(object.tipo){
                         case "b":
-                            var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "100%", height : "200px"});
+                            var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "auto", height : "200px"});
                             item.append(img);
                             $("#carrusel2").append(item);
 

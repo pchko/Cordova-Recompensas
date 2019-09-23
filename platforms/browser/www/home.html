@@ -49,13 +49,23 @@
         }
 
         .btn{
-            border-radius: 7px
+            border-radius: 7px;
         }
 
         body{
-            background: url(img/bg-home.jpeg) no-repeat;
+            /*background: url(img/bg-home.jpeg) no-repeat;
             background-size: cover;
             /*background-position: top center;*/
+
+            background: rgba(59,125,80,0.75);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(59,125,80,0.75)), color-stop(20%, rgba(46,112,68,0.8)), color-stop(48%, rgba(16,74,35,0.87)), color-stop(75%, rgba(8,48,21,0.94)), color-stop(100%, rgba(3,41,16,1)));
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: radial-gradient(ellipse at center, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7d50', endColorstr='#032910', GradientType=1 );
+
         }
 
         #wrapper{
@@ -64,8 +74,9 @@
 
         .content{
             min-height: inherit;
+            padding: 0;
+            height: auto;
         }
-
        
     </style>
 </head>
@@ -88,28 +99,7 @@
     <div id="wrapper">
         <div id="scroller">
             <div class="content">
-                <div style="padding:0 3vw; margin-top: calc(100vh - 260px)">
-                        <!--center>
-                        <img style="width: 100%;" src="img/nutrileche.png">
-                        </center>
-                    </div-->
-                    <div class="ui-element">
-                        <h3 style="color:#d9c31d; font-weight: bold;">¿Qué deseas realizar?</h3>
-                    </div>
-                    <!--div class="ui-element">
-                        <a href="acumulacion.html" class="btn"> Acumular </a>
-                    </div>
-                    <div class="ui-element">
-                        <a href="redencion.html" class="btn"> Redimir </a>
-                    </div-->
-                    
-                    <div class="ui-element">
-                        <a href="multimedia.html" class="btn"> Ver contenido multimedia </a>
-                    </div>
-                    <div class="ui-element">
-                        <a href="comentarios.html" class="btn"> Agregar un comentario </a>
-                    </div>
-                </div>
+                <img src="img/bg-home.jpeg" style="width: 100vw; height: auto;">
             </div>
         </div>
     </div>

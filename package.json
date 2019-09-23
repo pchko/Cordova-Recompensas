@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "Html5Video": "git+https://github.com/jaeger25/Html5Video.git",
-    "cordova-android": "^8.0.0",
+    "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-dialogs": "^2.0.2",
