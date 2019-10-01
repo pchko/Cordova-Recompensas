@@ -4,11 +4,10 @@ document.addEventListener('deviceready', function(){
         var data = JSON.parse(localStorage.getItem("banners"));
         
         if(data.length){
-            var listRedencion = $("#listRedencion");
             if(data.length > 0){
                 $.each(data, function(index, object){
 
-                    var li = $("<li>",{ "data-target" : "#carrouselBanners", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
+                    var li = $("<li>",{ "data-target" : "#carruselBanners", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
                     $("#indicadorBanners").append(li);
                     
                     var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
@@ -19,17 +18,17 @@ document.addEventListener('deviceready', function(){
                             $("#carrusel2").append(item);
 
                             img.click(function(){
-                                $("#carrouselBanners").carousel('pause');
+                                $("#carruselBanners").carousel('pause');
                             });
                         break;
                     }
 
                     $(".carousel-control").click(function(){
-                        $("#carrouselBanners").carousel('cycle');
+                        $("#carruselBanners").carousel('cycle');
                     });
 
                     li.click(function(){
-                        $("#carrouselBanners").carousel('cycle');
+                        $("#carruselBanners").carousel('cycle');
                     });
                 });    
             }
