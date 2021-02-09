@@ -26,9 +26,33 @@
         }
 
          label{
-            color:maroon;
+            color:yellow;
             font-weight: bold;
             font-size: 1em
+        }
+
+        body{
+            /*background: url(img/bg-bases.jpg) no-repeat;
+            background-size: cover;
+            background-position: top center;*/
+
+            background: rgba(59,125,80,0.75);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(59,125,80,0.75)), color-stop(20%, rgba(46,112,68,0.8)), color-stop(48%, rgba(16,74,35,0.87)), color-stop(75%, rgba(8,48,21,0.94)), color-stop(100%, rgba(3,41,16,1)));
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: radial-gradient(ellipse at center, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7d50', endColorstr='#032910', GradientType=1 );
+
+        }
+
+        #wrapper{
+            background: rgba(0,0,0,0) !important;
+        }
+
+        .content{
+            min-height: inherit;
         }
        
     </style>
@@ -48,7 +72,7 @@
                     </center>
                 </div>
                 <div class="ui-element">
-                    <h3 style="font-weight:bold; color:maroon;">Por favor ingresa los siguientes campos:</h3>
+                    <h3 style="font-weight:bold; color:yellow;">Por favor ingresa los siguientes campos:</h3>
                 </div>
                 <form id="formRegistro">
                     <div class="ui-element">
@@ -68,6 +92,22 @@
                         <input id="mail" type="email" name="mail" placeholder="Correo electrónico"/>
                     </div>
                     <div class="ui-element">
+                        <label for="zona" style="font-weight:bold">Zona: </label> 
+                        <div class="styled-select">
+                            <select id="id_zona" name="id_zona">
+                                <option value=""> -- Elige una zona --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-element">
+                        <label for="puesto" style="font-weight:bold">Puesto: </label> 
+                        <div class="styled-select">
+                            <select id="id_puesto" name="id_puesto">
+                                <option value=""> -- Elige un puesto --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-element">
                         <label for="fechaNacimiento" style="font-weight:bold">Fecha Nacimiento: </label> 
                         <input id="fechaNacimiento" type="date" name="fechaNacimiento"/>
                     </div>
@@ -82,9 +122,10 @@
                     <div class="ui-element">
                         <label for="password" style="font-weight:bold">Confirmar Contraseña: </label> 
                         <input id="repassword" type="password" name="repassword" placeholder="Confirma la contraseña anterior" />
+                        <input id="token" type="hidden" name="token" />
                     </div>
                     <div class="ui-element">
-                        <span style="font-weight:bold"> <input type="checkbox" name="terminos" id="terminos" style="transform:scale(1.8)"/> &nbsp;Al registrarme acepto los <a href="https://www.lalafoods.com/spanish/about-lala/" style="color:maroon; font-weight:bold"><u>Términos de Privacidad.</u></a></span>
+                        <span style="font-weight:bold; color: white"> <input type="checkbox" name="terminos" id="terminos" style="transform:scale(1.8)"/> &nbsp;Al registrarme acepto los <a href="https://www.lalafoods.com/spanish/about-lala/" style="color:yellow; font-weight:bold"><u>Términos de Privacidad.</u></a></span>
                     </div>
                     <div class="errorTxt ui-element"></div>
                     <div class="ui-element" id="divBtn">
@@ -97,7 +138,7 @@
     <script type="text/javascript" src="cordova.js"></script>    
     <script type="text/javascript" src="cordova_plugins.js"></script>
     <script type="text/javascript" src="js/commons.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     
     <script type="text/javascript" src="js/md5.js"></script>

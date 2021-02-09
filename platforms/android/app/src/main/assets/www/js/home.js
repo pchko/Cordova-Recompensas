@@ -1,127 +1,125 @@
-$(document).on("ready",function(){
+if(localStorage.getItem("user") == null || localStorage.getItem("user") == undefined){
+    localStorage.clear();
+    window.location = "index.html";
+}
 
-	var btnPedido = $("#btnPedido");
-    var btnServicio = $("#btnServicio");
-	var content = $(".content");
-	var anuncio = $(".alert");
-    var divServicio = $("#divServicio");
-    var session = window.sessionStorage;
-    var local = window.localStorage;
-    var psos = "Espere...";
-    var watchID = null;
+document.addEventListener("deviceready",function(){
 
-	if(window.localStorage.getItem("nroCliente") == null && window.localStorage.getItem("nroCliente") == 'undefined'){
-		btnPedido.remove();		
-	}else{
-		content.css("min-height","750px");
-	}
+    if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
 
-	document.addEventListener("backbutton",backButton);
+        FCMPlugin.onTokenRefresh(function(token){
+            navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+                localStorage.clear();
+                window.location = "index.html";
+            }, "Sesión vencida", "Aceptar");
+        });
 
-	function is_menu_visible(){
-        var current_left = $('#menu').css('left');        
-        return (current_left == "0px");
-    }
-
-    function hide_menu(){
-        $('#menu').animate({left: "-105%"}, 500);
-        if (typeof menuScroll !== 'undefined')
-            menuScroll.scrollTo(0, 0);
-    }
-
-    function backButton(){    	
-    	if (is_menu_visible()){    	
-            hide_menu();        
-        }else{            
-        	anuncio.show();
-        }
-    }
-
-    btnPedido.on("click",function(){
-
-        if(window.sessionStorage.getItem("nombre") == null){
-            
-        	$.jsonp({
-                url: "http://wiinikil.com/prospectos/index.php/api/resurtido/getProspecto",
-                callbackParameter: "callback", timeout: 10000,
-                data: {'nroCliente' : window.localStorage.getItem("nroCliente")},
-                beforeSend: function(){
-                    divServicio.html('<center><img src="img/loading.gif" style="width:50px"/><br/><span style="color:maroon; font-weight:bold">Conectando...</span></center>');
-                },
-                success: function(data){
-                    console.log(data);
-                    if(data && data.successful == 1){
-                        session.setItem("nombre", data.result.nombre);
-                        session.setItem("direccion", data.result.direccion);
-                        session.setItem("estado", data.result.estado);
-                        session.setItem("pais", data.result.pais);
-                        session.setItem("ubicacion", data.result.ubicacion);
-                        session.setItem("telefono", data.result.telefono);
-                        session.setItem("ruta", data.result.ruta);
-                        window.location="pedido.html";
-                    }else{
-                        navigator.notification.alert("El número de cliente asociado a tu cuenta no corresponde a uno de nuestros clientes registrados. Elige la opción Solicitar Asistencia",errorProspecto, "Error", "Aceptar");
-                    }
-                },
-                error: function(data){
-                    navigator.notification.alert("Hubo un problema al conectar a Coca-Cola. Intenta nuevamente por favor.",
-                    errorProspecto, "Error", "Aceptar");
-                }
-            });
-        }else{
-            window.location="pedido.html";
-        }
-    });
-
-    btnServicio.on("click", function(){        
-        navigator.notification.confirm("Se enviará un mensaje de alerta con tu ubicación para solicitar asistencia. ¿Deseas continuar?",onConfirm,"Atención",['Continuar', 'Cancelar']);
-    });
-
-    function errorProspecto(){
-        divServicio.html('<center><div><a href="javascript:;" id="btnPedido" class="btn">Solicitar Pedido</a></div><br><div><a href="javascript:;" id="btnServicio" class="btn">Solicitar Asistencia</a></div></center>');
-    }
-
-    function onConfirm(buttonIndex) {
-        switch(buttonIndex){
-            case 1:
-                divServicio.html('<center><img src="img/loading.gif" style="width:50px"/><br/><span style="color:maroon; font-weight:bold">Conectando...</span></center>');
-                watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 6000, maximumAge: 7000 });
-            break;
-        }
-    }
-
-    function onSuccess(position) {
-
-        psos= position.coords.latitude      + ", "+ position.coords.longitude;                
-        navigator.geolocation.clearWatch(watchID);
-        watchID = null;
-        enviarMail();
-    }
-
-    function onError(error) {
-        navigator.notification.alert("Para solicitar asistencia es necesario activar el GPS en su móvil.",
-            function(){
-                window.location.reload();
-            },
-            "Error",
-            "Aceptar");
-    }
-
-    function enviarMail(){
-        $.jsonp({
-            url: "http://wiinikil.com/prospectos/index.php/api/service/mandar_mail",
-            callbackParameter: "callback", timeout: 10000,
-            data: {phoneU : local.getItem('telefono'), correo : local.getItem('correo'), geolocation1 : psos, user : local.getItem('nombre')},
-            success: function(data){
-                console.log(data);
-                navigator.notification.alert("La alerta se ha enviado correctamente, en un instante un ejecutivo se comunicará.",
-                function(){window.location="home.html"}, "Éxito", "Aceptar");
-
-            },
-            error: function(data){
-                navigator.notification.alert("Hubo un problema al conectar a Coca-Cola. Intenta nuevamente por favor.",
-                function(){window.location.reload()}, "Error", "Aceptar");
+        FCMPlugin.onNotification(function(data){
+            if(data.wasTapped){
+              //Notification was received on device tray and tapped by the user.
+              navigator.notification.alert(data.body,null, data.title, "Aceptar");
+              //alert( JSON.stringify(data) );
+            }else{
+              //Notification was received in foreground. Maybe the user needs to be notified.
+              navigator.notification.alert(data.body,null, data.title, "Aceptar");
+              //alert( JSON.stringify(data) );
             }
         });
+
+        var apiKey = "PXLALA";
+        var link = "https://pixanit.com/lala/ws/index.php";
+        var data = {m: 'banners', key : apiKey};
+        var beforeFunction = function(){
+            var options = { dimBackground: true };
+            SpinnerPlugin.activityStart("Espere por favor", options);
+        };
+
+        var successFunction = function(data){
+            
+            if(data.length){
+                if(data.length > 0){
+                    localStorage.setItem("banners", JSON.stringify(data));
+                    $.each(data, function(index, object){
+
+                        var li = $("<li>",{ "data-target" : "#carrouselBanners", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
+                        $("#indicadorBanners").append(li);
+                        
+                        var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
+                        switch(object.tipo){
+                            case "b":
+                                var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "100%", height : "200px"});
+                                item.append(img);
+                                $("#carrusel2").append(item);
+
+                                img.click(function(){
+                                    $("#carrouselBanners").carousel('pause');
+                                });
+                            break;
+                        }
+
+                        $(".carousel-control").click(function(){
+                            $("#carrouselBanners").carousel('cycle');
+                        });
+
+                        li.click(function(){
+                            $("#carrouselBanners").carousel('cycle');
+                        });
+                    });    
+                }
+            }
+            SpinnerPlugin.activityStop();
+
+        };
+
+        var failFunction = function(data){
+            SpinnerPlugin.activityStop();
+            alert(JSON.stringify(data));  
+        };
+
+        connectServer(link, data, beforeFunction, successFunction, failFunction);
+
+        function connectServer(link, data, beforeFunction, successFunction, failFunction){
+            $.ajax({
+                crossDomain:true,
+                type: "POST",
+                timeout: 10000,
+                url: link,
+                data: data,
+                dataType: "json",
+                beforeSend: function(){
+                    beforeFunction && beforeFunction();
+                }
+            }).done(function(data){
+                successFunction && successFunction(data);
+                console.log(data);
+            }).fail(function(data){
+                failFunction && failFunction(data);
+                console.log(data);
+            });
+        }
+
+    	var anuncio = $(".alert");
+    	document.addEventListener("backbutton",backButton);
+    	function is_menu_visible(){
+            var current_left = $('#menu').css('left');        
+            return (current_left == "0px");
+        }
+
+        function hide_menu(){
+            $('#menu').animate({left: "-105%"}, 500);
+            if (typeof menuScroll !== 'undefined')
+                menuScroll.scrollTo(0, 0);
+        }
+
+        function backButton(){    	
+        	if (is_menu_visible()){    	
+                hide_menu();        
+            }else{            
+            	anuncio.show();
+            }
+        }
+    }else{
+        localStorage.clear();
+        window.location = "index.html";
     }
-});
+}, false);

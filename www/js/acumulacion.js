@@ -22,7 +22,7 @@ document.addEventListener('deviceready',function(){
                     crossDomain:true,
                     type: "POST",
                     timeout: 8000,
-                    url: "http://pixanit.com/lala/ws/index.php",
+                    url: "https://pixanit.com/lala/ws/index.php",
                     data: data,
                     dataType: "json",
                     beforeSend: function(){

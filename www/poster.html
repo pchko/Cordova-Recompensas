@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Multimedia</title>
+    <!--meta http-equiv="Content-Security-Policy" content="image-src *"-->  
+    <meta name="format-detection" content="telephone=no">        
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.green.min.css">
+    <style type="text/css">
+        #btnLogin{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: 280px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 14px;
+            border-color: rgb(255, 102, 0);
+        }
+
+        #btnLogin:hover{
+            
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+
+        label{
+            color:maroon;
+            font-weight: bold;
+            font-size: 1.15em
+        }
+
+        p{
+            font-weight: bold;
+        }
+
+        .btn{
+            border-radius: 5px;
+        }
+
+        h2{
+            font-weight: bold;
+            color: yellow;
+        }
+
+        body{
+            background: url(img/bg-multimedia.jpg) no-repeat;
+            background-size: cover;
+            background-position: bottom center;
+        }
+
+        #wrapper{
+            background: rgba(0,0,0,0) !important;
+            max-height: calc(100vh - 160px);
+            overflow-y: scroll;
+        }
+
+        .content{
+            min-height: inherit;
+        }
+
+        .item{
+            padding: 0 5px;
+        }
+
+        #divGallery {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0,0,0,1);
+            z-index: 100;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 300ms, opacity 300ms;
+            padding-top: 4vh;
+        }
+        
+        #divGallery.open {
+            visibility: visible;
+            opacity: 0.9;
+            transition: visibility 0s linear 0s, opacity 300ms;
+        }
+       
+    </style>
+        
+</head>    
+<body>
+    <div id="divGallery">
+        <div style="text-align: right; padding-right: 3vw">
+            <a id="btnCloseGallery"><img id="closeOverlayWelcome" src="img/closeBtn.png" style="height:11vh"></a>
+        </div>
+        <div style="text-align: center;margin-top: 0vh;">
+            <div id="carouselGallery" class="owl-carousel owl-theme" style="padding : 0 2vw 3vw 2vw"></div>
+        </div>
+    </div>
+    <div class="alert" style="display: none">        
+        <div class="top"></div> 
+        <div class="main"></div> 
+        <div class="container">
+            ¿Desea cerrar la aplicación?
+            <div class="action">
+                <a id="close_app" href="javascript:;" class="ok" data-action="1">Salir</a>&nbsp;
+                <a id="close_alert" href="javascript:;" class="ok" data-action="0">Cancelar</a>
+            </div>
+        </div>
+    </div>
+    <div id="header"> 
+        <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
+        <p class="title">Videos</p>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="content">
+                <h2>Contenido disponible: </h2>
+                <div id="listRedencion"></div>
+            </div>
+        </div>
+    </div>
+    <div id="menu"></div>
+    <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/carouselMenu.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/poster.js"></script>    
+</body>
+</html>

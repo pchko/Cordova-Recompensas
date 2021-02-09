@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+    <style type="text/css">
+
+        #btnServicio{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: -3px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 14px;
+        }
+
+        #btnPedido{
+            background: url(img/buttons.png);
+            background-position-x: 170px;
+            background-position-y: -3px;
+            background-size: 369px;
+            width: 167px;
+            height: 55px;
+            border-radius: 29px;
+            padding-top: 14px;
+        }
+
+        #btnServicio:hover{
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+        #btnPedido:hover{
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+        .btn{
+            border-radius: 7px
+        }
+
+        body{
+            background: url(img/bg-sku.jpg) no-repeat;
+            background-size: cover;
+            background-position: top center;
+
+            /*background: rgba(59,125,80,0.75);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(59,125,80,0.75)), color-stop(20%, rgba(46,112,68,0.8)), color-stop(48%, rgba(16,74,35,0.87)), color-stop(75%, rgba(8,48,21,0.94)), color-stop(100%, rgba(3,41,16,1)));
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            background: radial-gradient(ellipse at center, rgba(59,125,80,0.75) 0%, rgba(46,112,68,0.8) 20%, rgba(16,74,35,0.87) 48%, rgba(8,48,21,0.94) 75%, rgba(3,41,16,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7d50', endColorstr='#032910', GradientType=1 );*/
+
+        }
+
+        #wrapper{
+            background: rgba(0,0,0,0) !important;
+        }
+
+        .content{
+            min-height: inherit;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="alert" style="display:none">   
+        <div class="top"></div> 
+        <div class="main"></div> 
+        <div class="container">
+            ¿Desea cerrar la aplicación?
+            <div class="action">
+                <a id="close_app" href="javascript:;" class="ok" data-action="1">Salir</a>&nbsp;
+                <a id="close_alert" href="javascript:;" class="ok" data-action="0">Cancelar</a>
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div id="menu_action"><a href="javascript:void(0);"><img src="img/menu_princ.png" /></a></div>       
+        <p class="title">SKU's Participantes</p>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="content">
+                <div style="padding:0 3vw;">
+                    <div style="width: 100%; padding: 0 3px; text-align: center;">
+                        <img src="img/ic_launcher.png" style="max-width: 200px; width: 40vw">
+                    </div>    
+                    <div class="ui-element">
+                        <h3 style="color:#d9c31d; font-weight: bold;">Elige una categoria</h3>
+                    </div>
+                    <div id="divCategorias">
+                        
+                    </div>
+                    <!--div class="ui-element">
+                        <a href="multimedia.html" class="btn"> Ver contenido multimedia </a>
+                    </div>
+                    <div class="ui-element">
+                        <a href="comentarios.html" class="btn"> Agregar un comentario </a>
+                    </div-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menu"></div>
+    <script src="https://kit.fontawesome.com/4742d4c7f3.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/carouselMenu.js"></script>    
+    <script type="text/javascript" src="js/sku.js"></script> 
+</body>
+</html>

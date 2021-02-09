@@ -33,6 +33,12 @@
     },
     "cordova-plugin-file-opener2": {
       "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.pixanit.rewards"
     }
   },
   "dependent_plugins": {

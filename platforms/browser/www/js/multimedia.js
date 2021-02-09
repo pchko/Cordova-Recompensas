@@ -1,11 +1,31 @@
-//document.addEventListener('deviceready',function(){
-    alert("ready");
+document.addEventListener('deviceready',function(){
+
+    FCMPlugin.onTokenRefresh(function(token){
+        
+        navigator.notification.alert("Tu sesión ha caducado, por favor inicia sesión nuevamente", function(){
+            localStorage.clear();
+            window.location = "index.html";
+        }, "Sesión vencida", "Aceptar");
+    });
+
+    FCMPlugin.onNotification(function(data){
+        if(data.wasTapped){
+          //Notification was received on device tray and tapped by the user.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }else{
+          //Notification was received in foreground. Maybe the user needs to be notified.
+          navigator.notification.alert(data.body,null, data.title, "Aceptar");
+          //alert( JSON.stringify(data) );
+        }
+    });
+
     //alert(localStorage.getItem('user'));
     if(localStorage.getItem("user") != null || localStorage.getItem("user") != undefined){
         var user = JSON.parse(localStorage.getItem('user'));
         //$("#id_usuario").val(user.idUsuario);
         var apiKey = "PXLALA";
-        var link = "http://pixanit.com/lala/ws/index.php";
+        var link = "https://pixanit.com/lala/ws/index.php";
         var data = {m: 'multimedia', key : apiKey};
         var beforeFunction = function(){
             var options = { dimBackground: true };
@@ -13,66 +33,60 @@
         };
 
         var successFunction = function(data){
-            alert(JSON.stringify(data));
+            console.log(data);
             if(data.length){
                 var listRedencion = $("#listRedencion");
                 if(data.length > 0){
                     $.each(data, function(index, object){
 
-                        var card = $("<div>").css({margin: "0 auto", "border-radius": "8px", "padding":"2px 5px", border: "1px solid green"});
-                        var header = $("<div>").css({"padding":"0 2px"});
-                        var body = $("<div>").css({"padding":"0 2px"});
-                        var footer = $("<div>").css({"padding":"0 2px"});
-                        var nombre = $("<p>").text("Nombre: "+object.nombre).css({color:"maroon"});
-
+                        var li = $("<li>",{ "data-target" : "#myCarousel", "data-slide-to" : index, class : (index == 0 ? "active" : "") });
+                        $("#indicador").append(li);
+                        
+                        var item = $("<div>",{class : ( index == 0 ? "item active" : "item")});
                         switch(object.tipo){
                             case "v":
-                                var btn = $("<a>", {href:"javascript:;", class:"btn"}).text("Click para ver el video");
-                                btn.click(function(){
 
-                                    var fileTransfer = new FileTransfer();
-                                    var uri = encodeURI("https://cdn0.talenteca.com/thumbnail-images/TK_POST_THUMBNAIL_PIC-2019_04_30_10_16_37-90817676386344698917.jpg");
-                                    alert(cordova.file.cacheDirectory);
-                                    fileTransfer.download(
-                                        uri,
-                                        cordova.file.cacheDirectory,
-                                        function(entry) {
-                                            alert("download complete: " + entry.toURL());
-                                        },
-                                        function(error) {
-                                            alert("download error source " + error.source);
-                                            alert("download error target " + error.target);
-                                            alert("download error code" + error.code);
-                                        }
-                                    );
+                                var video = $("<video>", {id : "myvideo", autoplay : false, controls : true, poster : object.poster}).css({ width:"100%", height : "200px"});
+                                var source = $("<source>",{src: object.ruta, type: object.mime});
+                                
+                                /*
+                                var divTags = $("<div>",{class:"carousel-caption d-none d-md-block"});
+                                var title = $("<h5>").text(object.nombre);
+                                divTags.append(title);
+                                item.append(divTags);
+                                */
+                                item.append(video.append(source));
+                                
+                                $("#carrusel").append(item);
 
+                                video.on("play",function(){
+                                    $("#myCarousel").carousel('pause');
+                                });
 
-                                    /*alert("click");
-                                    cordova.plugins.fileOpener2.open(
-                                        object.ruta,
-                                        object.mime,
-                                        {
-                                            error : function(e) {
-                                                alert('Error status: ' + e.status + ' - Error message: ' + e.message);
-                                            },
-                                            success : function () {
-                                                alert('file opened successfully');
-                                            }
-                                        }
-                                    );*/
-                                });    
-                                card.append(header.append(nombre)).append(footer.append(btn));
+                                video.on("ended",function(){
+                                    $("#myCarousel").carousel('cycle');
+                                });
+                                
                             break;
 
                             case "b":
-                                var img = $("<img>", { src : object.ruta }).css({width : "100%"});
-                                card.append(header.append(img)).append(body.append(nombre));
+                                var img = $("<img>", { src : object.ruta, alt : object.nombre }).css({width : "100%", height : "200px"});
+                                item.append(img);
+                                $("#carrusel").append(item);
+
+                                img.click(function(){
+                                    $("#myCarousel").carousel('pause');
+                                });
                             break;
-
                         }
-                        
-                        listRedencion.append(card).append("<br>");
 
+                        $(".carousel-control").click(function(){
+                            $("#myCarousel").carousel('cycle');
+                        });
+
+                        li.click(function(){
+                            $("#myCarousel").carousel('cycle');
+                        });
                     });    
                 }else{
                     listRedencion.html("<h2><u>No hay contenido multimedia para mostrar</u></h2>");
@@ -95,13 +109,13 @@
         window.location="index.html";
     }
 
-//}, false);
+}, false);
 
 function connectServer(link, data, beforeFunction, successFunction, failFunction){
     $.ajax({
         crossDomain:true,
         type: "POST",
-        timeout: 8000,
+        timeout: 10000,
         url: link,
         data: data,
         dataType: "json",
@@ -115,4 +129,9 @@ function connectServer(link, data, beforeFunction, successFunction, failFunction
         failFunction && failFunction(data);
         console.log(data);
     });
+}
+
+document.addEventListener("backbutton",backButton);
+function backButton(){      
+    window.location = "home.html";
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "8891269916",
+    "firebase_url": "https://recompensas-aaa66.firebaseio.com",
+    "project_id": "recompensas-aaa66",
+    "storage_bucket": "recompensas-aaa66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8891269916:android:248986b5d16596cc",
+        "android_client_info": {
+          "package_name": "com.pixanit.rewards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8891269916-q59cub5f92qcbc7fob8hhan15ugulflb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pixanit.rewards",
+            "certificate_hash": "23caca77198ebc6a2fec6b5841d7cf1b79615d05"
+          }
+        },
+        {
+          "client_id": "8891269916-6esapgkmu2629gbsgckmksi5vn12fr85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0QAlWVmLK4VIBD37P8GCHSogb4411w7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8891269916-6esapgkmu2629gbsgckmksi5vn12fr85.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

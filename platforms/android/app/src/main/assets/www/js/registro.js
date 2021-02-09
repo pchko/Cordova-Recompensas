@@ -1,10 +1,16 @@
 document.addEventListener('deviceready', function(){
 
+    FCMPlugin.getToken(function(token){
+        //alert(token);
+        localStorage.setItem('token', token);
+        $("#token").val(token);
+    });
+
     $.ajax({
         crossDomain:true,
         type: "POST",
         timeout: 8000,
-        url: "http://pixanit.com/lala/ws/index.php",
+        url: "https://pixanit.com/lala/ws/index.php",
         data: {m:"getConfigRegistro", key : apiKey},
         dataType: "json",
         beforeSend: function(){
@@ -90,12 +96,12 @@ document.addEventListener('deviceready', function(){
         },
         submitHandler: function(form, event){     
             event.preventDefault();
-            var data = {nombre : $("#nombre").val(), ap_pat: $("#apPaterno").val(), ap_mat: $("#apMaterno").val(), mail : $("#mail").val(), fechaNacimiento : $("#fechaNacimiento").val(), usuario : $("#username").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'registro', id_zona : $("#id_zona").val(), id_puesto : $("#id_puesto").val()};
+            var data = {nombre : $("#nombre").val(), ap_pat: $("#apPaterno").val(), ap_mat: $("#apMaterno").val(), mail : $("#mail").val(), fechaNacimiento : $("#fechaNacimiento").val(), usuario : $("#username").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'registro', id_zona : $("#id_zona").val(), id_puesto : $("#id_puesto").val(), token : $("#token").val()};
             $.ajax({
                 crossDomain:true,
                 type: "POST",
                 timeout: 8000,
-                url: "http://pixanit.com/lala/ws/index.php",
+                url: "https://pixanit.com/lala/ws/index.php",
                 data: data,
                 dataType: "json",
                 beforeSend: function(){

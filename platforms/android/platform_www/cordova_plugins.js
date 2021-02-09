@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
       "id": "cordova-plugin-dialogs.notification",
       "file": "plugins/cordova-plugin-dialogs/www/notification.js",
       "pluginId": "cordova-plugin-dialogs",
@@ -14,6 +22,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-dialogs",
       "merges": [
         "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+      "clobbers": [
+        "FCMPlugin"
       ]
     },
     {
@@ -270,7 +286,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
+    "cordova-plugin-device": "2.0.3",
     "cordova-plugin-dialogs": "2.0.2",
+    "cordova-plugin-fcm-with-dependecy-updated": "3.0.0",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-file-opener2": "2.2.1",
     "cordova-plugin-file-transfer": "1.7.1",

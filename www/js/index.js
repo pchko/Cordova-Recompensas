@@ -14,12 +14,12 @@
             submitHandler: function(form, event){     
                 //event.preventDefault();
 
-                var data = {usuario : $("#usuario").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'login'};
+                var data = {usuario : $("#usuario").val(), password : md5($("#password").val()), 'key' : apiKey, 'm' : 'login', token : $("#token").val()};
                 $.ajax({
                     crossDomain:true,
                     type: "POST",
                     timeout: 8000,
-                    url: "http://pixanit.com/lala/ws/index.php",
+                    url: "https://pixanit.com/lala/ws/index.php",
                     data: data,
                     dataType: "json",
                     beforeSend: function(){

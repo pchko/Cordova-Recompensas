@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pixanit.rewards" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Recompensas</name>
+<widget id="com.pixanit.rewards" version="1.4.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Echale los kilos</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -9,7 +9,7 @@
     </author>
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-minSdkVersion" value="19" />
-    <content src="index.html" />
+    <content src="home.html" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />

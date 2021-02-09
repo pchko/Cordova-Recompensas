@@ -13,17 +13,36 @@ $(document).on("ready",function(){
     content_height = height - 45;
 
     var html = '<ul>';
-        html += '<li><img src="img/banner.png" style="width:100%" /></li>';
-        html += '<li><a href="home.html"><img src="img/menu/noticias.png" /><span>Home</span></a></li>';
-        //html += '<li><a href="acumulacion.html"><img src="img/menu/registro.png" /><span>Acumular puntos</span></a></li>';
-        //html += '<li><a href="redencion.html"><img src="img/menu/registro.png" /><span>Redimir productos</span></a></li>';
-        html += '<li><a href="multimedia.html"><img src="img/menu/multimedia.png" /><span>Multimedia</span></a></li>';
-        html += '<li><a href="comentarios.html"><img src="img/menu/testimonios.png" /><span>Comentarios</span></a></li>';
+        //html += '<li><img src="img/banner.png" style="width:100%" /></li>';
+        html+='<li>';
+            html+='<div id="carruselBanners" class="carousel slide" data-ride="carousel">';
+            html+='<ol id="indicadorBanners" class="carousel-indicators"></ol>';
+            html+='<div id="carrusel2" class="carousel-inner"></div>';
+                html+='<a class="left carousel-control" href="#carruselBanners" data-slide="prev">';
+                    html+='<span class="glyphicon glyphicon-chevron-left"></span>';
+                    html+='<span class="sr-only">Previous</span>';
+                html+='</a>';
+                html+='<a class="right carousel-control" href="#carruselBanners" data-slide="next">';
+                    html+='<span class="glyphicon glyphicon-chevron-right"></span>';
+                    html+='<span class="sr-only">Next</span>';
+                html+='</a>';
+            html+='</div>';
+        html+='</li>';
+
+        html += '<li><a href="home.html"><span><i class="fa fa-home" aria-hidden="true"></i> Home </span></a></li>';
+        html += '<li><a href="echale.html"><img src="img/menu/registro.png" /><span> Échale los kilos y ponte la máscara</span></a></li>';
+        html += '<li><a href="mision.html"><img src="img/menu/registro.png" /><span> La misión</span></a></li>';
+        html += '<li><a href="bases.html"><img src="img/menu/registro.png" /><span> Bases del concurso</span></a></li>';
+        html += '<li><a href="sku.html"><span><i class="fa fa-barcode" aria-hidden="true"></i> SKU\'s Participantes</span></a></li>';
+        html += '<li><a href="gana.html"><span><i class="fa fa-plus-circle" aria-hidden="true"></i> Gana más</span></a></li>';
+        html += '<li><a href="poster.html"><img src="img/menu/registro.png" /><span> Posters </span></a></li>';
+        html += '<li><a href="multimedia.html"><span><i class="fa fa-video" aria-hidden="true"></i> Videos</span></a></li>';
+        html += '<li><a href="comentarios.html"><span><i class="fa fa-comments" aria-hidden="true"></i> Comentarios</span></a></li>';
         html += '<li><a id="close_sesion" href="javascript:;"><img src="img/menu/entrar.png" /><span>Cerrar Sesión</span></a></li>';
         html += '<li><a id="cerrar_app" href="javascript:;"><img src="img/menu/close.png" /><span>Salir</span></a></li>';
     html += '</ul>';
 
-    $('#menu').html(html);
+    $('#menu').html(html).css("");
 
     function toogle_menu(){
         if (is_menu_visible())

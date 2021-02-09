@@ -5,7 +5,7 @@ document.addEventListener('deviceready',function(){
         var user = JSON.parse(localStorage.getItem('user'));
         //$("#id_usuario").val(user.idUsuario);
         var apiKey = "PXLALA";
-        var link = "http://pixanit.com/lala/ws/index.php";
+        var link = "https://pixanit.com/lala/ws/index.php";
         var data = {m: 'lista_premios', key : apiKey};
         var beforeFunction = function(){
             var options = { dimBackground: true };

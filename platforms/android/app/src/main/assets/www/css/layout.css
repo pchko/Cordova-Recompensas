@@ -53,7 +53,7 @@ q:before, q:after {
     content:none;
 }
 
-p {padding: 5px 0; font-size: 17px; line-height:20px; padding-bottom: 15px; text-align: justify; color:#111111;}
+p {padding: 5px 0; font-size: 17px; line-height:20px;  text-align: justify; color:#111111;}
 p.title {color: #fff; text-align: left;}
 ul {padding-bottom: 15px;}
 li {padding: 5px 0; font-size: 17px; line-height:20px; text-align: justify;}
@@ -357,18 +357,18 @@ div.no100 img {width: auto !important;}
     padding: 0;
     /* height: 40px; */
     /* line-height: 40px; */
-    border: 1px solid #fafffd;
+    /*border: 1px solid #fafffd; */
     /* border-top: 1px solid #a0a0a0; */
     /* background-color: #fafafa; */
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
     background-color: rgb(29,81,61); 
     color:black !important;
 }
 
-#menu li * {vertical-align: middle;}
+/*#menu li * {vertical-align: middle;}*/
 #menu li a img {height: 18px; display: block; float: left;}
 #menu li a img.tiny {height: 26px!important; margin-top: -3px;}
-#menu li a span {display: block; margin-left: 30px;}
+#menu li a span {display: block; /*margin-left: 30px;*/}
 #menu li a {display: block; padding: 12px 15px 12px 10px; color: white;
 border-top:  1px solid white;
 }
